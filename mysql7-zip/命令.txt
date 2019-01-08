@@ -1,0 +1,29 @@
+mysqld --remove 执行错误时删除重新执行
+
+mysqld --defaults-file=C:\\tools\\mysql-5.7.24-winx64\\my.ini --initialize-insecure
+mysqld --install
+net start mysql
+
+登陆修改密码
+mysql -uroot -p
+use mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+flush privileges;
+
+
+
+-----------开启远程------------------
+开启远程
+CREATE USER 'root'@'%' IDENTIFIED BY '123456';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+grant all on *.* to 'root'@'%';
+flush privileges;
+-----------------------------------------
+
+net stop mysql
+
+net start mysql
+
+mysql -u root -p
+
+[输入密码]
